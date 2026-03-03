@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>ZenGPA | Breathe & Track</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <div id="auth-view" class="view-container active">
+    <div class="card">
+      <h2 style="margin-bottom: 10px;">Welcome to ZenGPA</h2>
+      <p class="text-muted" style="margin-bottom: 25px;">A calm space for your academic progress.</p>
+      
+      <input type="email" id="auth-email" class="form-input" placeholder="Email address">
+      <input type="password" id="auth-password" class="form-input" placeholder="Password">
+      
+      <div style="display: flex; gap: 10px; margin-top: 20px;">
+        <button id="btn-login" class="btn btn-primary" style="flex: 1;">Log In</button>
+        <button id="btn-signup" class="btn btn-secondary" style="flex: 1;">Sign Up</button>
+      </div>
+      <p id="auth-msg" class="msg-soft"></p>
+    </div>
+  </div>
+
+  <div id="setup-view" class="view-container hidden">
+    <div class="card">
+      <h2>Let's set up your timeline</h2>
+      <p class="text-muted" style="margin-bottom: 25px;">Just a few details to structure your dashboard.</p>
+      
+      <input type="text" id="setup-name" class="form-input" placeholder="Full Name">
+      <input type="text" id="setup-school" class="form-input" placeholder="University/School Name">
+      <select id="setup-years" class="form-input">
+        <option value="" disabled selected>Total Years in School</option>
+        <option value="2">2 Years (ND/Diploma)</option>
+        <option value="4">4 Years (Standard Degree)</option>
+        <option value="5">5 Years (Engineering/Arch)</option>
+        <option value="6">6 Years (Medicine)</option>
+      </select>
+      
+      <button id="btn-save-profile" class="btn btn-primary" style="width: 100%; margin-top: 20px;">Create Dashboard</button>
+    </div>
+  </div>
+
+  <div id="dashboard-view" class="view-container hidden" style="max-width: 900px; width: 100%;">
+    <header class="header">
+      <div>
+        <h1 id="dash-greeting">Welcome back</h1>
+        <p id="dash-school" class="text-muted">Loading...</p>
+      </div>
+      <button id="btn-logout" class="btn btn-secondary">Log Out</button>
+    </header>
+
+    <div class="cgpa-card">
+      <p class="text-muted">Cumulative Grade Point Average</p>
+      <div class="cgpa-value" id="dash-cgpa">0.00</div>
+      <p style="color: var(--accent-green); font-weight: 500;" id="dash-encouragement">Your journey begins here. 🌱</p>
+    </div>
+
+    <h3 style="margin-bottom: 20px;">Academic Timeline</h3>
+    <div id="timeline-container" class="timeline-grid">
+      </div>
+  </div>
+
+  <div id="semester-modal" class="modal hidden">
+    <div class="modal-content card">
+      <div class="modal-header">
+        <h3 id="modal-title">100 Level - First Semester</h3>
+        <button id="btn-close-modal" class="btn btn-icon">×</button>
+      </div>
+      <p class="text-muted" style="margin-bottom: 20px;">Input or edit your grades.</p>
+      
+      <div id="course-list">
+        </div>
+      
+      <button id="btn-add-course" class="btn btn-secondary" style="width: 100%; margin-top: 15px;">+ Add Course</button>
+      <hr style="margin: 20px 0; border: none; border-top: 1px solid #E4E7EB;">
+      
+      <div style="display: flex; justify-content: space-between; align-items: center;">
+        <div>
+          <span class="text-muted">Semester GPA:</span>
+          <span id="preview-sgpa" style="font-weight: 700; color: var(--accent-blue); font-size: 20px;">0.00</span>
+        </div>
+        <button id="btn-save-semester" class="btn btn-primary">Save & Calculate</button>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="app.js"></script>
+</body>
+</html>
